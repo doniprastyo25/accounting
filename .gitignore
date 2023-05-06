@@ -1,0 +1,6 @@
+venv
+*.pyc
+.idea
+bucket
+db.sqlite3
+.env

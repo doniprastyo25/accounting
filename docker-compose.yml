@@ -1,0 +1,33 @@
+version: '3'
+volumes:
+  accounting_db_data: {}
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command: >
+     sh -c "python manage.py runserver"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=accounting_app
+      - DB_USER=admin
+      - DB_PASSWORD=admin123
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin123
+      - POSTGRES_DB=accounting_app
+    volumes:
+      - accounting_db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
