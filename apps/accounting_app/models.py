@@ -6,9 +6,15 @@ class IncomeType(models.Model):
     name = models.CharField(max_length=500)
     code_finance = models.IntegerField()
 
+    def __str__(self) -> str:
+        return self.name
+
 class OutcomeType(models.Model):
     name = models.CharField(max_length=500)
     code_finance = models.IntegerField()
+
+    def __str__(self) -> str:
+        return self.name
 
 class IncomeDetailModel(DateTimeModel, models.Model):
     name_income = models.CharField(max_length=500)
