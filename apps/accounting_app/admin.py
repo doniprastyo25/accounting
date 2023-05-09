@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.accounting_app.models import IncomeType, OutcomeType, IncomeDetailModel, OutcomeDetailMode
+from apps.accounting_app.models import IncomeType, OutcomeType, IncomeDetailModel, OutcomeDetailModel
 # Register your models here.
 @admin.register(IncomeType)
 class IncomeTypeAdmin(admin.ModelAdmin):
@@ -18,7 +18,7 @@ class IncomeTypeAdmin(admin.ModelAdmin):
                     "created_at",
                     ]
 
-@admin.register(OutcomeDetailMode)
+@admin.register(OutcomeDetailModel)
 class IncomeTypeAdmin(admin.ModelAdmin):
     list_display = ["name_outcome",
                     "total_outcome",
