@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.accounting_app.models import IncomeDetailModel, OutcomeDetailMode
+from apps.accounting_app.models import IncomeDetailModel, OutcomeDetailModel
 
 class IncomeSerializer(serializers.ModelSerializer):
 
@@ -10,5 +10,5 @@ class IncomeSerializer(serializers.ModelSerializer):
 class OutComeSerializer(serializers):
 
     class Meta:
-        model = OutcomeDetailMode
+        model = OutcomeDetailModel
         fields = ['name_outcome', 'total_outcome', 'outcome_type', 'updated_at']

@@ -21,7 +21,7 @@ class IncomeDetailModel(DateTimeModel, models.Model):
     total_income = models.IntegerField()
     income_type = models.ForeignKey(IncomeType, on_delete=models.CASCADE)
 
-class OutcomeDetailMode(DateTimeModel, models.Model):
+class OutcomeDetailModel(DateTimeModel, models.Model):
     name_outcome = models.CharField(max_length=500)
     total_outcome = models.IntegerField()
     outcome_type = models.ForeignKey(OutcomeType, on_delete=models.CASCADE)
