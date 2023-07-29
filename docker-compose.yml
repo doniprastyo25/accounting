@@ -26,6 +26,7 @@ services:
       - DB_NAME=accounting_app
       - DB_USER=admin
       - DB_PASSWORD=admin123
+    restart: always
 
   db:
     image: postgres
