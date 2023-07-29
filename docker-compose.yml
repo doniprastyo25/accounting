@@ -1,10 +1,17 @@
 version: '3'
+
 volumes:
   accounting_db_data: {}
+networks:
+  accountingServiceNetwork:
+
 services:
   app:
     build:
       context: .
+      dockerfile: Dockerfile
+    container_name: accounting_app
+    image: service_accounting
     volumes:
       - .:/app
     ports:
@@ -12,7 +19,7 @@ services:
     depends_on:
       - db
     command: >
-     sh -c "python manage.py runserver 0.0.0.0:8000"
+     sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     environment:
       - DB_HOST=db
       - DB_PORT=5432
@@ -22,6 +29,7 @@ services:
 
   db:
     image: postgres
+    container_name: accounting_db
     restart: always
     environment:
       - POSTGRES_USER=admin
